@@ -51,7 +51,7 @@ export function SearchField({
           className
         )}
       >
-        <Search className="absolute left-4 h-4 w-4 text-muted-foreground/70" />
+        <Search className="absolute left-4 h-4 w-4 text-primary/70" />
 
         <Input
           type="text"
@@ -65,9 +65,9 @@ export function SearchField({
             "h-12 min-h-[48px]",
             "bg-background",
             "text-base",
-            "rounded-lg",
-            "border transition-colors duration-200",
-            isFocused ? "border-primary ring-0 ring-offset-0" : "border-input",
+            "rounded-full",
+            "border border-input",
+            "focus:outline-none focus:ring-2 focus:ring-primary/20 focus:ring-offset-0",
             error && "border-destructive",
           )}
         />
@@ -80,7 +80,7 @@ export function SearchField({
               exit={{ opacity: 0, scale: 0.8 }}
               className="absolute right-4"
             >
-              <Loader2 className="h-4 w-4 animate-spin text-muted-foreground/70" />
+              <Loader2 className="h-4 w-4 animate-spin text-primary/70" />
             </motion.div>
           ) : localValue && (
             <motion.button
@@ -89,7 +89,7 @@ export function SearchField({
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.8 }}
-              className="absolute right-4 text-muted-foreground/70 hover:text-muted-foreground"
+              className="absolute right-4 text-primary/70 hover:text-primary"
             >
               <X className="h-4 w-4" />
             </motion.button>
