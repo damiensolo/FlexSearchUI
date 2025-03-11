@@ -51,18 +51,8 @@ export function SearchField({
           className
         )}
       >
-        <motion.div
-          className={cn(
-            "absolute inset-0 rounded-lg",
-            "bg-gradient-to-r from-primary/10 to-primary/5",
-            "transition-opacity duration-300",
-            isFocused ? "opacity-100" : "opacity-0"
-          )}
-          layoutId="searchBackground"
-        />
-        
-        <Search className="absolute left-3 h-5 w-5 text-muted-foreground" />
-        
+        <Search className="absolute left-4 h-4 w-4 text-muted-foreground/70" />
+
         <Input
           type="text"
           value={localValue}
@@ -71,10 +61,13 @@ export function SearchField({
           onBlur={() => setIsFocused(false)}
           placeholder={placeholder}
           className={cn(
-            "pl-10 pr-10 h-12",
-            "bg-background/50 backdrop-blur-sm",
-            "border-2 transition-colors duration-300",
-            isFocused ? "border-primary" : "border-input",
+            "pl-10 pr-10 py-6",
+            "h-12 min-h-[48px]",
+            "bg-background",
+            "text-base",
+            "rounded-lg",
+            "border transition-colors duration-200",
+            isFocused ? "border-primary ring-0 ring-offset-0" : "border-input",
             error && "border-destructive",
           )}
         />
@@ -85,9 +78,9 @@ export function SearchField({
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.8 }}
-              className="absolute right-3"
+              className="absolute right-4"
             >
-              <Loader2 className="h-5 w-5 animate-spin text-muted-foreground" />
+              <Loader2 className="h-4 w-4 animate-spin text-muted-foreground/70" />
             </motion.div>
           ) : localValue && (
             <motion.button
@@ -96,9 +89,9 @@ export function SearchField({
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.8 }}
-              className="absolute right-3 text-muted-foreground hover:text-foreground"
+              className="absolute right-4 text-muted-foreground/70 hover:text-muted-foreground"
             >
-              <X className="h-5 w-5" />
+              <X className="h-4 w-4" />
             </motion.button>
           )}
         </AnimatePresence>
