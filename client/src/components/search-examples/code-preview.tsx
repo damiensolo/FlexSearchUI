@@ -1,13 +1,13 @@
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
 interface CodePreviewProps {
-  platform: 'web' | 'ios' | 'android';
+  platform: "web" | "ios" | "android";
 }
 
 export function CodePreview({ platform }: CodePreviewProps) {
   const getCode = () => {
     switch (platform) {
-      case 'web':
+      case "web":
         return `// React Component
 const SearchField = ({
   onSearch,
@@ -40,7 +40,7 @@ const SearchField = ({
     </motion.div>
   );
 };`;
-      case 'ios':
+      case "ios":
         return `// SwiftUI Component
 struct SearchField: View {
     @Binding var text: String
@@ -63,7 +63,7 @@ struct SearchField: View {
         .cornerRadius(8)
     }
 }`;
-      case 'android':
+      case "android":
         return `// Kotlin Android Component
 class SearchField @JvmOverloads constructor(
     context: Context,
@@ -93,7 +93,7 @@ class SearchField @JvmOverloads constructor(
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="overflow-hidden rounded-lg bg-gray-900 p-4"
+      className="overflow-hidden rounded-lg bg-gray-900 p-4" // code preview container
     >
       <pre className="overflow-x-auto">
         <code className="text-sm text-gray-100">{getCode()}</code>

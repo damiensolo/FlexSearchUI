@@ -61,19 +61,19 @@ export const SearchField: React.FC<SearchFieldProps> = ({
   return (
     <motion.div
       className={cn(
-        "relative flex items-center rounded-3xl border border-gray-400 bg-white shadow-sm",// input border
+        "relative flex items-center rounded-3xl border border-2 border-gray-2000 bg-slate-100 shadow-sm", // input styling
         isFocused && "border-blue-500 ring-4 ring-blue-100", // focus ringed border
         className,
       )}
       animate={{
-        width: animateWidth && isFocused ? "100%" : "840px", // width of the search input
+        width: animateWidth && isFocused ? "100%" : "100%", // width of the search input
       }}
       transition={{ duration: 0.2 }}
     >
       <Search
         className={cn(
-          "ml-3 h-11 w-5 text-gray-400",
-          isFocused && "text-blue-500",
+          "ml-3 h-11 w-6 text-gray-800", // search icon - padding, height, width, color
+          isFocused && "text-blue-700",
         )}
       />
       <input
@@ -84,7 +84,7 @@ export const SearchField: React.FC<SearchFieldProps> = ({
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
         placeholder={placeholder}
-        className="flex-1 bg-transparent px-3 py-2 text-sm outline-none placeholder:text-gray-400"
+        className="flex-1 bg-transparent px-3 py-2 text-md outline-none placeholder:text-gray-400" // input text
         {...props}
       />
       <AnimatePresence>
@@ -97,7 +97,7 @@ export const SearchField: React.FC<SearchFieldProps> = ({
             className="mr-2 rounded-full p-1 hover:bg-gray-100"
             type="button"
           >
-            <X className="h-4 w-4 text-gray-400" />
+            <X className="h-5 w-6 text-gray-600" />
           </motion.button>
         )}
       </AnimatePresence>

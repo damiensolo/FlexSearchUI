@@ -1,23 +1,24 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { SearchField } from '../search-field/SearchField';
-import { MobilePreview } from './mobile-preview';
-import { CodePreview } from './code-preview';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { SearchField } from "../search-field/SearchField";
+import { MobilePreview } from "./mobile-preview";
+import { CodePreview } from "./code-preview";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export function SearchExamples() {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [activeTab, setActiveTab] = useState('web');
+  const [searchQuery, setSearchQuery] = useState("");
+  const [activeTab, setActiveTab] = useState("web");
 
   const handleSearch = (value: string) => {
     setSearchQuery(value);
   };
 
   return (
+    // Search Container
     <div className="space-y-8">
       <div className="rounded-xl bg-white p-6 shadow-lg md:p-20">
         <h2 className="mb-6 text-xl font-semibold text-gray-900">Live Demo</h2>
-        <div className="space-y-4">
+        <div className="space-y-4 font-semibold ">
           <SearchField
             onSearch={handleSearch}
             placeholder="Try searching something..."
@@ -34,8 +35,7 @@ export function SearchExamples() {
           )}
         </div>
       </div>
-
-      <div className="rounded-xl bg-gray-2000 p-6 shadow-lg md:p-8"> 
+      <div className="rounded-xl bg-gray-2000 p-6 shadow-lg md:p-8">
         <Tabs value={activeTab} onValueChange={setActiveTab}>
           <div className="mb-6 flex items-center justify-between">
             <h2 className="text-2xl font-semibold text-gray-900">
@@ -51,7 +51,8 @@ export function SearchExamples() {
           <TabsContent value="web" className="mt-0">
             <div className="space-y-4">
               <p className="text-gray-600">
-                React implementation using Tailwind CSS and Framer Motion for animations.
+                React implementation using Tailwind CSS and Framer Motion for
+                animations.
               </p>
               <CodePreview platform="web" />
             </div>
@@ -61,8 +62,8 @@ export function SearchExamples() {
             <div className="grid gap-8 md:grid-cols-2">
               <div className="space-y-4">
                 <p className="text-gray-600">
-                  Native iOS implementation using SwiftUI with smooth animations and
-                  state management.
+                  Native iOS implementation using SwiftUI with smooth animations
+                  and state management.
                 </p>
                 <CodePreview platform="ios" />
               </div>
@@ -74,8 +75,8 @@ export function SearchExamples() {
             <div className="grid gap-8 md:grid-cols-2">
               <div className="space-y-4">
                 <p className="text-gray-600">
-                  Native Android implementation using Kotlin with Material Design
-                  components.
+                  Native Android implementation using Kotlin with Material
+                  Design components.
                 </p>
                 <CodePreview platform="android" />
               </div>
