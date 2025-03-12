@@ -1,7 +1,7 @@
-import React, { useState, useCallback, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Search, X } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import React, { useState, useCallback, useRef, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Search, X } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface SearchFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
   onSearch?: (value: string) => void;
@@ -14,7 +14,7 @@ interface SearchFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
 
 export const SearchField: React.FC<SearchFieldProps> = ({
   onSearch,
-  placeholder = 'Search...',
+  placeholder = "Search...",
   className,
   clearable = true,
   debounceMs = 300,
@@ -22,7 +22,7 @@ export const SearchField: React.FC<SearchFieldProps> = ({
   ...props
 }) => {
   const [isFocused, setIsFocused] = useState(false);
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
   const debounceTimer = useRef<NodeJS.Timeout>();
 
@@ -35,7 +35,7 @@ export const SearchField: React.FC<SearchFieldProps> = ({
         onSearch?.(searchValue);
       }, debounceMs);
     },
-    [onSearch, debounceMs]
+    [onSearch, debounceMs],
   );
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -45,8 +45,8 @@ export const SearchField: React.FC<SearchFieldProps> = ({
   };
 
   const handleClear = () => {
-    setValue('');
-    handleSearch('');
+    setValue("");
+    handleSearch("");
     inputRef.current?.focus();
   };
 
@@ -61,19 +61,19 @@ export const SearchField: React.FC<SearchFieldProps> = ({
   return (
     <motion.div
       className={cn(
-        'relative flex items-center rounded-lg border border-gray-200 bg-white shadow-sm',
-        isFocused && 'border-blue-500 ring-2 ring-blue-100',
-        className
+        "relative flex items-center rounded-3xl border border-gray-400 bg-white shadow-sm",// input border
+        isFocused && "border-blue-500 ring-4 ring-blue-100", // focus ringed border
+        className,
       )}
       animate={{
-        width: animateWidth && isFocused ? '100%' : '240px',
+        width: animateWidth && isFocused ? "100%" : "840px", // width of the search input
       }}
       transition={{ duration: 0.2 }}
     >
       <Search
         className={cn(
-          'ml-3 h-5 w-5 text-gray-400',
-          isFocused && 'text-blue-500'
+          "ml-3 h-11 w-5 text-gray-400",
+          isFocused && "text-blue-500",
         )}
       />
       <input

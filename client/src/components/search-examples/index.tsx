@@ -15,8 +15,8 @@ export function SearchExamples() {
 
   return (
     <div className="space-y-8">
-      <div className="rounded-xl bg-white p-6 shadow-lg md:p-8">
-        <h2 className="mb-6 text-2xl font-semibold text-gray-900">Live Demo</h2>
+      <div className="rounded-xl bg-white p-6 shadow-lg md:p-20">
+        <h2 className="mb-6 text-xl font-semibold text-gray-900">Live Demo</h2>
         <div className="space-y-4">
           <SearchField
             onSearch={handleSearch}
@@ -27,7 +27,7 @@ export function SearchExamples() {
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="rounded-lg bg-gray-50 p-4 text-sm text-gray-600"
+              className="rounded-lg bg-gray-50 p-4 text-sm text-gray-600" // Styling for the search results
             >
               Searching for: {searchQuery}
             </motion.div>
@@ -35,7 +35,7 @@ export function SearchExamples() {
         </div>
       </div>
 
-      <div className="rounded-xl bg-white p-6 shadow-lg md:p-8">
+      <div className="rounded-xl bg-gray-2000 p-6 shadow-lg md:p-8"> 
         <Tabs value={activeTab} onValueChange={setActiveTab}>
           <div className="mb-6 flex items-center justify-between">
             <h2 className="text-2xl font-semibold text-gray-900">
